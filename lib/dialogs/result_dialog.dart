@@ -9,7 +9,7 @@ class ResultDialog extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return AlertDialog(
-      title: const Text('Result'),
+      title: const Text('RESULTADO'),
       content: Wrap(
         children: [
           ListTile(
@@ -36,11 +36,11 @@ class ResultDialog extends StatelessWidget {
           Divider(),
           ListTile(
             title: Text('Preço sem rodapé'),
-            subtitle: Text('${result.priceWithoutFooter.toStringAsFixed(2)}'),
+            subtitle: Text('R\$ ${result.priceWithoutFooter.toStringAsFixed(2)}'),
             ),
           ListTile(
             title: Text('Preço com rodapé'),
-            subtitle: Text('${result.priceWithFooter.toStringAsFixed(2)}'),
+            subtitle: Text('R\$ ${result.priceWithFooter.toStringAsFixed(2)}'),
             ),
         ],
       ),
