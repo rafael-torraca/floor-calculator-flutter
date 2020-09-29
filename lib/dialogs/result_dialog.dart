@@ -13,26 +13,35 @@ class ResultDialog extends StatelessWidget {
       content: Wrap(
         children: [
           ListTile(
-            title: Text('${result.amountPieces} pisos'),
-            subtitle: Text('Quantidade de pisos'),
+            title: Text('Quantidade de pisos'),
+            subtitle: Text('${result.amountPieces} pisos'),
           ),
           ListTile(
-            title: Text('${result.amountFloor} pisos'),
-            subtitle: Text('Quantidade de pisos para o rodapé'),
+            title: Text('Quantidade de pisos para o rodapé'),
+            subtitle: Text('${result.amountFloor} pisos'),
           ),
           ListTile(
-            title: Text('${result.amountPiecesAndFooter} pisos'),
-            subtitle: Text('Quantidade total de pisos'),
+            title: Text('Quantidade total de pisos'),
+            subtitle: Text('${result.amountPiecesAndFooter} pisos'),
           ),
           Divider(),
           ListTile(
-            title: Text('${result.areaWithoutFooter.toStringAsFixed(2)} m²'),
-            subtitle: Text('Metragem quadrada sem rodapé'),
+            title: Text('Metragem quadrada sem rodapé'),
+            subtitle: Text('${result.areaWithoutFooter.toStringAsFixed(2)} m²'),
           ),
           ListTile(
-            title: Text('${result.areaWithFooter.toStringAsFixed(2)} m²'),
-            subtitle: Text('Metragem quadrada com rodapé'),
+            title: Text('Metragem quadrada com rodapé'),
+            subtitle: Text('${result.areaWithFooter.toStringAsFixed(2)} m²'),
           ),
+          Divider(),
+          ListTile(
+            title: Text('Preço sem rodapé'),
+            subtitle: Text('${result.priceWithoutFooter.toStringAsFixed(2)}'),
+            ),
+          ListTile(
+            title: Text('Preço com rodapé'),
+            subtitle: Text('${result.priceWithFooter.toStringAsFixed(2)}'),
+            ),
         ],
       ),
       actions: [

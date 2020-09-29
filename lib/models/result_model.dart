@@ -2,11 +2,15 @@ class ResultModel {
   double areaFloor;
   int piecesByWidth;
   int piecesByLength;
+  double priceWithFooter;
+  double priceWithoutFooter;
 
   ResultModel({
     this.areaFloor,
     this.piecesByWidth,
     this.piecesByLength,
+    this.priceWithFooter,
+    this.priceWithoutFooter,
   });
 
   int get amountPieces => piecesByWidth * piecesByLength;

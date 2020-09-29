@@ -57,8 +57,15 @@ class _CalculatorPageState extends State<CalculatorPage> {
             'Comprimento (centímetros)',
             onSaved: _controller.setFloorLength,
           ),
+          _buildVerticalSpace(),
+          _buildNumberInputField(
+            'Preço/m',
+            onSaved: _controller.setFloorPrice,
+          ),
           _buildVerticalSpace(height: 40),
           _buildCalculateButton(),
+          _buildVerticalSpace(),
+          _buildClearTextButton(),
         ],
       ),
     );
@@ -80,6 +87,13 @@ class _CalculatorPageState extends State<CalculatorPage> {
     return RaisedButton(
       child: const Text('CALCULAR'),
       onPressed: _calcular,
+    );
+  }
+
+  _buildClearTextButton() {
+    return RaisedButton(
+      child: const Text('LIMPAR'),
+      onPressed: _clear,
     );
   }
 
@@ -111,6 +125,12 @@ class _CalculatorPageState extends State<CalculatorPage> {
         context: context,
         builder: (context) => ResultDialog(result),
       );
+    }
+  }
+
+  void _clear() {
+    if (_formKey.currentState.toString() != null) {
+      _formKey.currentState.reset();
     }
   }
 }
