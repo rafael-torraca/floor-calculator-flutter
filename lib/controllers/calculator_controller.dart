@@ -3,6 +3,8 @@ import 'package:floor_calculator/models/floor_model.dart';
 import 'package:floor_calculator/models/result_model.dart';
 import 'package:floor_calculator/models/room_model.dart';
 
+import '../helpers/parse_helper.dart';
+
 class CalculatorController {
   final room = new RoomModel();
   final floor = new FloorModel();
@@ -16,11 +18,15 @@ class CalculatorController {
   }
 
   void setFloorWidth(String value) {
-    floor.width = ParseHelper.toDouble(value);
+    floor.width = ParseHelper.toDouble(value) / 100;
   }
 
   void setFloorLength(String value) {
-    floor.length = ParseHelper.toDouble(value);
+    floor.length = ParseHelper.toDouble(value) / 100;
+  }
+
+  void setFloorPrice(String value) {
+    floor.price = ParseHelper.toDouble(value);
   }
 
   ResultModel calculate() {
@@ -28,6 +34,8 @@ class CalculatorController {
     result.piecesByWidth = (room.width / floor.width).ceil();
     result.piecesByLength = (room.length / floor.length).ceil();
     result.areaFloor = floor.length * floor.width;
+    result.priceWithFooter = floor.price * result.areaWithFooter;
+    result.priceWithoutFooter = floor.price * result.areaWithoutFooter;
     return result;
   }
 }
